@@ -5,6 +5,7 @@ using namespace std;
 
 vector<int> Solution::sortArrayByParity(vector <int>& A) {
     vector<int> output;
+    // O(A.size()*distance_between_pos_and_end)
     for (int i = 0; i < A.size(); ++i) {  // O(A.size())
         if (output.empty()) {
             output.push_back(A[i]);  // amortized O(1)
