@@ -10,3 +10,9 @@ void Utility::printVector(vector<int>& v) {
     }
     cout << "\n";
 }
+
+void Utility::swapValues(int& a, int& b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
