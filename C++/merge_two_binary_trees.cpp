@@ -40,6 +40,18 @@ TreeNode* Solution::mergeTrees(TreeNode* t1, TreeNode* t2) {
     return t1;
 }
 
+// this method is better than leve-order: more straghtforword and simple
+TreeNode* Solution::mergeTreesRecursive(TreeNode* t1, TreeNode* t2) {
+    if (t1 && t2) {
+        TreeNode* root = new TreeNode(t1->val+t2->val);
+        root->left = mergeTreesRecursive(t1->left, t2->left);
+        root->right = mergeTreesRecursive(t1->right, t2->right);
+        return root;
+    } else {
+        return t1 ? t1 : t2;
+    }
+}
+
 
 int main() {
     TreeNode t1(1);
@@ -56,7 +68,7 @@ int main() {
     Utility::traverseTreeByLevelOrder(&t2);
 
     Solution* sol = new Solution();
-    TreeNode* output = sol->mergeTrees(&t1, &t2);
+    TreeNode* output = sol->mergeTreesRecursive(&t1, &t2);
     Utility::traverseTreeByLevelOrder(output);
     return 0;
 }
