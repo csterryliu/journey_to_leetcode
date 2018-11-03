@@ -9,6 +9,10 @@ class Solution(object):
 
         return out
 
+    def arrayPairSumBetterI(self, nums):
+        nums.sort()
+        return sum(nums[::2])
+
 
 if __name__ == '__main__':
     input_val = [1, 1]
