@@ -13,7 +13,8 @@ int Solution::arrayPairSum(vector<int>& nums) {
     // O(n/2) -> O(n)
     for (int i = 0; i < nums.size(); i+=2) {
         cout << nums[i] << nums[i+1] << "\n";
-        output += min(nums[i], nums[i+1]);
+        // output += min(nums[i], nums[i+1]);
+        output += nums[i];  // no need to find min value since the array is sorted
     }
     // total: O(nlogn + n)
     return output;
