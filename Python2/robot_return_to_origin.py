@@ -17,8 +17,14 @@ class Solution(object):
             return True
         return False
 
+    def judgeCircleByCount(self, s):
+        # count() is O(n), but it is implemented in native code.
+        # So it will be faster than normal Python implementation
+        # And we just have to make sure the number of L/R and U/D are the same
+        return s.count('L') == s.count('R') and s.count('U') == s.count('D')
+
 
 if __name__ == '__main__':
     s = 'RRDD'
     sol = Solution()
-    print sol.judgeCircle(s)
+    print sol.judgeCircleByCount(s)
