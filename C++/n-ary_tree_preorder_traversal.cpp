@@ -5,16 +5,22 @@
 using namespace std;
 
 vector<int> Solution::preorder(Node* root) {
-    stack<Node*> temp;
     vector<int> output;
+    if (root == NULL) {
+        return output;
+    }
+    stack<Node*> temp;
     temp.push(root);
+    vector<Node*>::iterator iter;
+    // we visit each node exactly once, and for each visit, the complexity of the operation (i.e. appending the child nodes) is proportional to the number of child nodes n (n-ary tree). 
+    // so the time complexity may be close to O(N). 
+    // Where N is the number of nodes, i.e. the size of tree.
     while (temp.size() > 0) {
         Node* this_node = temp.top();
         temp.pop();
         if (this_node->children.size() > 0) {
-            for (vector<Node*>::iterator iter = (this_node->children.end())-1; iter != this_node->children.begin(); --iter) {
-                cout << iter->val << "\n";
-                temp.push(*iter);
+            for (iter = --(this_node->children.end()); iter >= this_node->children.begin(); --iter) {
+                temp.push((*iter));
             }
         }
         output.push_back(this_node->val);
@@ -40,6 +46,6 @@ int main() {
 
     Solution* sol = new Solution();
     vector<int> output = sol->preorder(&tree);
-    Utility::printVector(output);
+    //Utility::printVector(output);
     return 0;
 }
