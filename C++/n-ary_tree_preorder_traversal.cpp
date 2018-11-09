@@ -7,18 +7,17 @@ using namespace std;
 vector<int> Solution::preorder(Node* root) {
     stack<Node*> temp;
     vector<int> output;
-    int temp_idx = 0;
     temp.push(root);
     while (temp.size() > 0) {
         Node* this_node = temp.top();
-        if (temp_idx == 0) output.push_back(this_node->val);
-        if (this_node->children.size() > 0 && temp_idx < this_node->children.size()) {
-            temp.push(this_node->children[temp_idx++]);
-            continue;
-        } else {
-            temp.pop();
+        temp.pop();
+        if (this_node->children.size() > 0) {
+            for (vector<Node*>::iterator iter = (this_node->children.end())-1; iter != this_node->children.begin(); --iter) {
+                cout << iter->val << "\n";
+                temp.push(*iter);
+            }
         }
-
+        output.push_back(this_node->val);
     }
     
     return output;
