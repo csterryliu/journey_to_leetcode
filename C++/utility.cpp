@@ -34,3 +34,9 @@ void Utility::traverseTreeByLevelOrder(TreeNode* tree) {
     }
     cout << "\n";
 }
+
+void Utility::printSinglyLinkList(ListNode* head) {
+    if (head == NULL) return;
+    cout << head->val << " ";
+    printSinglyLinkList(head->next);
+}
