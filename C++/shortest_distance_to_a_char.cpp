@@ -45,7 +45,7 @@ vector<int> Solution::shortestToCharFaster(string S, char C) {
         // at() is faster than operator[]
         // although they are basically constant time
         
-        // at() offers bounds checking while operator[] doen't
+        // at() offers bounds checking while operator[] doesn't
         output.at(i) = temp;
     }
     return output;
