@@ -4,50 +4,65 @@
 
 using namespace std;
 
-#define COST(i) (i<cost.size()?cost.at(i):0)
+
+// my state: minCost(n)
+// it stands for the minimum cost of step n
 
 int Solution::minCostClimbingStairs(vector<int>& cost) {
-    /*// from leetcode
-    // use dynamic programming
-    reverse(cost.begin(), cost.end());
-    int f1 = 0;
-    int f2 = 0;
-    for (int i = 0; i < cost.size(); ++i) {
-        f1 = min(f1, f2) + cost.at(i);
-        f2 = f1;
+    // recursive way
+    //return min(minCost(cost, 0), minCost(cost, 1));
+
+    // top-down
+    // construct the table first
+    //minCostMemoization(cost, 0);
+    //return min(table[0], table[1]);
+
+    // buttom-up
+    // construct the table first
+    minCostTabulation(cost, 0);
+    return min(table[0], table[1]);
+}
+
+// O(2^n). very bad
+int Solution::minCost(vector<int>& cost, int step) {
+    if (step + 1 >= cost.size() || step + 2 >= cost.size()) {
+        return cost[step];
     }
-    return min(f1, f2);*/
-    
-    
-    
-    if (cost.size() == 2) {
-        return min(cost.at(0), cost.at(1));
+    return cost[step] + min(minCost(cost, step+1), minCost(cost, step+2));
+}
+
+// Dynamic programming: memoization (top-down) or tabulation (buttom-up)
+// The complexity is O(n). Because we only need to compute each value once.
+// Tabulation is better than memoization (Based on the result on the LeetCode website)
+int Solution::minCostMemoization(vector<int>& cost, int step) {
+    if (table.count(step) > 0) return table[step];
+    if (step + 1 >= cost.size() || step + 2 >= cost.size()) {
+        return cost[step];
     }
-    int index = 0;
-    int output = 0;
-    while (cost.size() - index > 2) {
-        int min_value = INT_MAX;
-        int base_value = COST(index);
-        int jump = 0;
-        int dst = 0;
-        for (int i = 1; i <= 4; i++) {
-            dst = (i > 2 ? i - 1 : i);
-            if (i == 3) {
-                base_value = COST(index + 1);
-            }
-            if (base_value + COST(index+dst) < min_value) {
-                min_value = base_value + COST(index+i);
-                jump = dst;
-            }
+    table[step] = cost[step] + min(minCostMemoization(cost, step+1), minCostMemoization(cost, step+2));
+    return table[step];
+}
+
+int Solution::minCostTabulation(vector<int>& cost, int step) {
+    // We have to traverse the array backword.
+    // Because the original order has us compute forword.
+    // But it's easier to compute the table backword.
+    for (int i = cost.size()-1; i >= step; --i) {
+        if (i + 1 >= cost.size() || i + 2 >= cost.size()) {
+            table[i] = cost.at(i);
+        } else {
+            table[i] = cost.at(i) + min(table[i+1], table[i+2]);
         }
-        index += jump;
-        output += min_value;
     }
-    return output;
+    return table[step];
 }
 
 int main() {
     vector<int> A;
+
+    /*A.push_back(10);
+    A.push_back(15);
+    A.push_back(20);*/
     
     A.push_back(1);
     A.push_back(100);
