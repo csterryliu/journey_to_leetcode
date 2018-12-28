@@ -10,17 +10,8 @@ TreeNode* Solution::trimBST(TreeNode* root, int l, int r) {
     // space complexity: O(n)
     // Even though we don't explicitly use any additional memory, the call stack of our recursion could be as large as the number of nodes in the worst case.
     if (root == NULL) return root;
-    if (root->val > r) {
-        TreeNode* next = root->left;
-        delete root;
-        // since the value is greater than r, the whole right subtree is also greater than r. So the right subtree can be discarded.
-        return trimBST(next, l, r); 
-    }
-    if (root->val < l) {
-        TreeNode* next = root->right;
-        delete root;
-        return trimBST(next, l, r);
-    }
+    if (root->val > r) return trimBST(root->left, l, r); 
+    if (root->val < l) return trimBST(root->right, l, r); 
     root->left = trimBST(root->left, l, r);
     root->right = trimBST(root->right, l, r);
 
