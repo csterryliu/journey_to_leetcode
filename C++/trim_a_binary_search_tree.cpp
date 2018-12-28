@@ -23,7 +23,7 @@ TreeNode* Solution::trimBST(TreeNode* root, int l, int r) {
         // delete the node
         delete root->right;
     }
-    root->right = trimBST(root->right, l, r);
+    root->right = newSubTree;
 
     return root;
 }
