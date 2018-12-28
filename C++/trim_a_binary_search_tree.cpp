@@ -5,23 +5,27 @@
 using namespace std;
 
 TreeNode* Solution::trimBST(TreeNode* root, int l, int r) {
-    // inorder traversal
-    if (root == NULL) return NULL;
-    trimBST(root->left, l, r);
-    cout << root->val << " ";
-    if (root->val > r || root->val < l) {
-        cout << "delete " << root->val << "\n"; 
+    // preorder traversal
+    // time complexity: O(n), n is the total number of nodes in the given tree
+    // space complexity: O(n)
+    // Even though we don't explicitly use any additional memory, the call stack of our recursion could be as large as the number of nodes in the worst case.
+    if (root == NULL) return root;
+    if (root->val > r) return trimBST(root->left, l, r);
+    if (root->val < l) return trimBST(root->right, l, r);
+    TreeNode* newSubTree = trimBST(root->left, l, r);
+    if (root->left != newSubTree) {
+        // delete the node
+        delete root->left;
     }
-    trimBST(root->right, l, r);
-    return NULL;
-}
+    root->left = newSubTree;
+    newSubTree = trimBST(root->right, l, r);
+    if (root->right != newSubTree) {
+        // delete the node
+        delete root->right;
+    }
+    root->right = trimBST(root->right, l, r);
 
-TreeNode* Solution::findSuccessor(TreeNode* root) {
-    TreeNode* temp = root;
-    while (temp->left != NULL) {
-        temp = temp->left;
-    }
-    return temp;
+    return root;
 }
 
 
