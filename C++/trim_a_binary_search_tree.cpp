@@ -10,20 +10,19 @@ TreeNode* Solution::trimBST(TreeNode* root, int l, int r) {
     // space complexity: O(n)
     // Even though we don't explicitly use any additional memory, the call stack of our recursion could be as large as the number of nodes in the worst case.
     if (root == NULL) return root;
-    if (root->val > r) return trimBST(root->left, l, r);  // since the value is greater than r, the whole right subtree is also greater than r. So the right subtree can be discarded.
-    if (root->val < l) return trimBST(root->right, l, r);
-    TreeNode* newSubTree = trimBST(root->left, l, r);
-    if (root->left != newSubTree) {
-        // delete the node
-        delete root->left;
+    if (root->val > r) {
+        TreeNode* next = root->left;
+        delete root;
+        // since the value is greater than r, the whole right subtree is also greater than r. So the right subtree can be discarded.
+        return trimBST(next, l, r); 
     }
-    root->left = newSubTree;
-    newSubTree = trimBST(root->right, l, r);
-    if (root->right != newSubTree) {
-        // delete the node
-        delete root->right;
+    if (root->val < l) {
+        TreeNode* next = root->right;
+        delete root;
+        return trimBST(next, l, r);
     }
-    root->right = newSubTree;
+    root->left = trimBST(root->left, l, r);
+    root->right = trimBST(root->right, l, r);
 
     return root;
 }
@@ -45,10 +44,7 @@ int main() {
     // t1.left->right = new TreeNode(35);
     // t1.left->left = new TreeNode(15);
     //Utility::traverseTreeByLevelOrder(&t1);
-    //Solution* sol = new Solution();
-    //TreeNode* output = sol->trimBST(&t1, 1, 2);
-    //TreeNode* test = sol->findSuccessor(&t1);
-    //cout << test->val << "\n";
-    //Utility::traverseTreeByLevelOrder(output);
+    Solution* sol = new Solution();
+    TreeNode* output = sol->trimBST(&t1, 1, 2);
     return 0;
 }
