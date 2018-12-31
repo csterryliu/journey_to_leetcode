@@ -12,6 +12,7 @@ vector<vector<int> > Solution::levelOrder(Node* root) {
     queue<Node*> q;
     q.push(root);
 
+    // maybe it is O(n)?
     while (!q.empty()) {
         vector<int> row;
         int size_of_this_level = q.size();
