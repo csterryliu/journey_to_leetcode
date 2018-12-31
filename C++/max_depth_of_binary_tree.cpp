@@ -8,6 +8,8 @@ using namespace std;
 int Solution::maxDepth(TreeNode* root) {
     // DFS
     // time complexity: O(n)
+    // space complexity: O(n) for worst case (unbalanced tree)
+    //                   O(logn) for best case (balanced tree)
     if (root == NULL) return 0;
     return 1 + max(maxDepth(root->left), maxDepth(root->right));
 }
