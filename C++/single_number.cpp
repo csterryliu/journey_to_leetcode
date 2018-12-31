@@ -36,6 +36,20 @@ int Solution::singleNumberHash(vector<int>& nums) {
     return *(temp.cbegin());
 }
 
+int Solution::singleNumberXOR(vector<int>& nums) {
+    // a ^ 0 = a
+    // a ^ a = 0
+    // a ^ b ^ a = (a ^ a) ^ b = 0 ^ b = b
+    int output = 0;
+    vector<int>::const_iterator iter;
+    for (iter = nums.cbegin(); iter != nums.cend(); ++iter) {
+        output ^= *(iter);
+    }
+    // time: O(n)
+    // space: O(1)
+    return output;
+}
+
 int main() {
     vector<int> A;
     
@@ -46,7 +60,7 @@ int main() {
     A.push_back(2);
     
     Solution* sol = new Solution();
-    int output = sol->singleNumberHash(A);
+    int output = sol->singleNumberXOR(A);
     delete sol;
 
     cout << output << "\n";
