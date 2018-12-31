@@ -5,13 +5,11 @@
 
 using namespace std;
 
-int Solution::maxDepth(TreeNode* root, int dep=0) {
+int Solution::maxDepth(TreeNode* root) {
     // DFS
-    if (root == NULL) return dep;
-    //maxDepth(root->left, dep+1);
-    //maxDepth(root->right, dep+1);
-    //cout << root->val << " ";
-    return max(maxDepth(root->left, dep+1), maxDepth(root->right, dep+1));
+    // time complexity: O(n)
+    if (root == NULL) return 0;
+    return 1 + max(maxDepth(root->left), maxDepth(root->right));
 }
 
 

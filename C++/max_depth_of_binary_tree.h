@@ -5,5 +5,5 @@ using namespace std;
 class Solution {
 public:
     Solution() {}
-    int maxDepth(TreeNode* root, int dep);
+    int maxDepth(TreeNode* root);
 };
