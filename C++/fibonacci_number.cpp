@@ -21,9 +21,9 @@ int Solution::fib(int N) {
 // fib(4) = fib(3) + fib(2)
 // It also has optimal substurcture property. It combines the results of the subproblems
 
-// memorization (top-down)
+// memoization (top-down)
 // O(n). All values are only calculated for once.
-int Solution::fibMemorization(int N) {
+int Solution::fibMemoization(int N) {
     // If the data is in the table, just use it and don't calculate it again!
     if (table.count(N) > 0) return table[N];
     if (N == 0) return 0;
