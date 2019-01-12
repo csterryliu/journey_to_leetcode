@@ -9,22 +9,21 @@ class Solution(object):
     def averageOfLevels(self, root):
         # BFS
         # time: O(N). All nodes only are visited once
+        # we don't have to use Queue all the time! List can do the similar thing sometimes
         output = []
-        import Queue
-        q = Queue.Queue()
-        q.put(root)
-        while not q.empty():
-            avg = 0
-            nodes_this_level = q.qsize()
-            for _ in xrange(nodes_this_level):
-                this_node = q.get(block=False)
-                if this_node.left:
-                    q.put(this_node.left)
-                if this_node.right:
-                    q.put(this_node.right)
-                avg += this_node.val
-            avg /= float(nodes_this_level)
-            output.append(avg)
+        nodes_next_level = [root]
+        while nodes_next_level:
+            temp_sum, temp_counts = 0, 0
+            nodes_this_level = nodes_next_level
+            nodes_next_level = []
+            for node in nodes_this_level:
+                temp_sum += node.val
+                temp_counts += 1
+                if node.left:
+                    nodes_next_level.append(node.left)
+                if node.right:
+                    nodes_next_level.append(node.right)
+            output.append(temp_sum/float(temp_counts))
 
         return output
 
