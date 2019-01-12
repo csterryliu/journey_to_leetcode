@@ -6,18 +6,15 @@ class Node(object):
 
 class Solution(object):
     def preorder(self, root):
-        output = []
         if not root:
-            return output
-        stack = [root]
+            return []
+        stack, output = [root], []
         while stack:
             this_node = stack.pop()
             output.append(this_node.val)
-            if not this_node.children:
-                continue
-            # [::-1] will give you the array in reverse order
-            for c in this_node.children[::-1]:
-                stack.append(c)
+            if this_node.children:
+                stack.extend(this_node.children[::-1])
+        # O(N). Because we append the child nodes for each visit
         return output
 
 
