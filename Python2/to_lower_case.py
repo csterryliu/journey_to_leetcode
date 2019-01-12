@@ -15,8 +15,11 @@ class Solution(object):
             output.write(ch)
         return output.getvalue()
 
+    def toLowerCase2(self, str):
+        return str.lower()
+
 
 if __name__ == '__main__':
     s = 'Hello'
     sol = Solution()
-    print sol.toLowerCase(s)
+    print sol.toLowerCase2(s)
