@@ -20,6 +20,18 @@ class Solution(object):
             if front == end:
                 row[front] ^= 1
 
+        # O(len(A) * len(row)/2)
+        return A
+
+    def flipAndInvertImage2(self, A):
+        # O(len(A) * len(row))
+        for row in A:
+            # O(len(row))
+            row.reverse()
+            # O(len(row))
+            for i in xrange(len(row)):  # use xrange is better than range when looping. xrange offers iterator.
+                row[i] ^= 1
+
         return A
 
 
