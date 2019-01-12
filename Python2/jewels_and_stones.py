@@ -6,20 +6,27 @@ class Solution(object):
         :rtype: int
         """
         count = 0
-        s = set()
         # O(J)
-        for jewel in J:
-            s.add(jewel)
-            
-        # O(S*1) in best/average case. Possible O(S*n) in worst case.
+        s = set(J)
+
+        # Because we use set (hash table) here, the finding procedure won't be too long
+        # It's O(S*1) in best/average case. O(S*n) in worst case. (collision)
         for stone in S:
             if stone in s:
                 count += 1
         return count
 
+    def numJewelsInStones2(self, J, S):
+        count = 0
+        # O(S*J)
+        for stone in S:
+            if stone in J:
+                count += 1
+        return count
+
 
 if __name__ == '__main__':
-    J = "aAKlUngG"
-    S = "aAAbbbbkGnUKKaaA"
+    J = "z"
+    S = "ZZ"
     sol = Solution()
-    print sol.numJewelsInStones(J, S)
+    print sol.numJewelsInStones2(J, S)
