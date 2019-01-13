@@ -21,8 +21,7 @@ class Solution(object):
                 return mid
             if nums[mid] > target:
                 end = mid - 1
-                continue
-            if nums[mid] < target:
+            else:
                 begin = mid + 1
         return -1
 
