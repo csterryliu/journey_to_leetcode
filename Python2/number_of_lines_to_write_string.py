@@ -9,6 +9,7 @@ class Solution(object):
 
         total_lines = 1
         current_width = 0
+        # O(len(S))
         for ch in S:
             if current_width + widths[index_of_ch(ch)] >\
                self.max_unit_per_line:
