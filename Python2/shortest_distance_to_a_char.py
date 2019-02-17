@@ -1,4 +1,6 @@
 class Solution(object):
+    # it's too slow! every characters need to perform n times of loop!
+    # so the time complexity may be close to O(n*(n-1))! Which is O(n^2)!!
     def shortestToChar(self, S, C):
         output = []
         distance_pre = 0
