@@ -1,5 +1,5 @@
 class Solution(object):
-    # it's too slow! every characters need to perform n times of loop!
+    # it's too slow! every character need to perform n times of loop!
     # so the time complexity may be close to O(n*(n-1))! Which is O(n^2)!!
     def shortestToChar(self, S, C):
         output = []
@@ -34,7 +34,29 @@ class Solution(object):
 
         return output
 
+    # from leetcode solution
+    # O(n)
+    def betterSol(self, S, C):
+        output = []
+        # negtive_num - (-inf) = inf. We can consider it as a very big int
+        last_pos_of_c = float('-inf')
+        # O(n)
+        for idx, ch in enumerate(S):
+            if ch == C:
+                last_pos_of_c = idx
+            # Because we go toward right. Index must be greater than the latest index of the target we found
+            output.append(idx - last_pos_of_c)
+        last_pos_of_c = float('inf')
+        # O(n)
+        for idx in xrange(len(S)-1, -1, -1):
+            if S[idx] == C:
+                last_pos_of_c = idx
+            # Because we go toward left. Index must be lesser than the latest index of the target we found
+            output[idx] = min(output[idx], last_pos_of_c - idx)
+        return output
+
 
 if __name__ == '__main__':
     sol = Solution()
-    print sol.shortestToChar('abaa', 'b')
+    # print sol.shortestToChar('loveleetcode', 'e')
+    print sol.betterSol('loveleetcode', 'e')
