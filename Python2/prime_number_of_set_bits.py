@@ -31,3 +31,9 @@ class Solution(object):
     	    if number % x == 0:
     	    	return False
     	return True
+    
+    
+    def fasterSolution(self, L, R):
+        # Because R <= 10^6 <= 2^20, the number of bits to represent the number won't exceed 20! (The maximum bits to represent a number may be 32 or 64. But it doesn't matter here)
+        prime_sets = {2, 3, 5, 7, 11, 13, 17, 19}
+        return sum(bin(n).count('1') in prime_sets for n in xrange(L, R+1))
