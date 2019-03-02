@@ -10,12 +10,31 @@ class TreeNode {
     }
 }
 
-var invertTree = function(root) {
+// var invertTree = function(root) {
+//     dfs(root);
+//     return root;
+// }
+
+// function dfs(root) {
+//     if (!root) {
+//         return;
+//     }
+//     if (root.right || root.left) {
+//         const temp = root.left;
+//         root.left = root.right;
+//         root.right = temp;
+//     }
+//     dfs(root.right);
+//     dfs(root.left);
+//     return;
+// }
+
+var invertTree = (root) => {
     dfs(root);
     return root;
 }
 
-function dfs(root) {
+var dfs = (root) => {
     if (!root) {
         return;
     }
