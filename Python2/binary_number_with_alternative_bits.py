@@ -1,5 +1,6 @@
 class Solution(object):
     def hasAlternatingBits(self, n):
+        # O(w). Where w is the number of bits in n.
         expected_bit = 0 if (n & 1) == 1 else 1
         while n:
             n >>= 1
