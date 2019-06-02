@@ -6,7 +6,7 @@ class Solution(object):
         vowels_in_string = []
         index_to_be_put = []
         output = []
-        # O(len(s))
+        # O(len(string) + len(vowels_in_string))
         for idx, letter in enumerate(s):
             if letter.lower() in vowels:
                 vowels_in_string.append(letter)
