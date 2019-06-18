@@ -17,7 +17,14 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        return head
+        prev = None
+        head_node = head
+        while head_node:
+            temp = head_node.next
+            head_node.next = prev
+            prev = head_node
+            head_node = temp
+        return head_node
 
 
 if __name__ == '__main__':
@@ -28,8 +35,7 @@ if __name__ == '__main__':
     head.next.next.next.next = ListNode(5)
     sol = Solution()
     output = sol.reverseListInterative(head)
-    temp = head
-    while temp:
-        print temp.val
-        temp = 
+    while head:
+        print head.val
+        head = head.next
         
