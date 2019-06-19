@@ -17,6 +17,7 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
+        # how does python do assignment?
         prev = None
         head_node = head
         while head_node:
@@ -24,7 +25,7 @@ class Solution(object):
             head_node.next = prev
             prev = head_node
             head_node = temp
-        return head_node
+        return prev
 
 
 if __name__ == '__main__':
@@ -35,7 +36,7 @@ if __name__ == '__main__':
     head.next.next.next.next = ListNode(5)
     sol = Solution()
     output = sol.reverseListInterative(head)
-    while head:
-        print head.val
-        head = head.next
+    while output:
+        print output.val
+        output = output.next
         
