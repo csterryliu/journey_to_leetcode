@@ -10,7 +10,13 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        return head
+        # reference: https://www.educative.io/collection/page/5642554087309312/5679846214598656/70003?affiliate_id=5082902844932096&utm_source=google&utm_medium=cpc&utm_campaign=platform2&utm_content=ad-1-dynamic&gclid=CjwKCAjw3azoBRAXEiwA-_64OuVKbgpOkzZ4vHFHwGWH7rA1GBrIwu2NSvdwE9yNwjJn2dbvBEzDfxoC1wcQAvD_BwE
+        if not head or head.next is None:
+            return head
+        reversed_node_list = self.reverseListRecursive(head.next)
+        head.next.next = head
+        head.next = None
+        return reversed_node_list
 
     def reverseListInterative(self, head):
         """
@@ -35,7 +41,7 @@ if __name__ == '__main__':
     head.next.next.next = ListNode(4)
     head.next.next.next.next = ListNode(5)
     sol = Solution()
-    output = sol.reverseListInterative(head)
+    output = sol.reverseListRecursive(head)
     while output:
         print output.val
         output = output.next
