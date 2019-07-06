@@ -13,7 +13,7 @@ class Solution(object):
                 dup = num
             else:
                 s.add(num)
-            if num != expected and not expected in s:
+            if num != expected and expected not in s:
                 missing = expected
             expected = expected + 1
         return [dup, missing]
