@@ -11,14 +11,21 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
+        # time: O(n)
+        # space: O(n) because it is recursion
+
         longest_diameter = [0]
 
         def dfs(root):
             if not root:
                 return 0
+            # find the longest single-direction path of left subtree
             longest_path_left = 1 + dfs(root.left) if root.left else 0
+            # find the longest single-direction path of right subtree
             lognest_path_right = 1 + dfs(root.right) if root.right else 0
+            # the diameter must be across the root. so we remember the current longest value we've found in this subtree
             longest_diameter[0] = max(longest_diameter[0], longest_path_left + lognest_path_right)
+            # return the longest single-direction path of this subtree
             return max(longest_path_left, lognest_path_right)
         dfs(root)
         return longest_diameter[0]
