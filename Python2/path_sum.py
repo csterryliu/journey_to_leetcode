@@ -10,6 +10,15 @@ class Solution(object):
     def __init__(self):
         self.s = set([])
 
+    def bestSolution(self, root, sumN):
+        if not root:
+            return False
+        # we found it!
+        if not root.left and not root.right and sumN - root.val == 0:
+            return True
+        # keep searching
+        return self.bestSolution(root.left, sumN - root.val) or self.bestSolution(root.right, sumN - root.val)
+
     def hasPathSum(self, root, sumN):
         """
         :type root: TreeNode
