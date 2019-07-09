@@ -17,6 +17,7 @@
 - Best Time to Buy and Sell Stock
 - Min Cost Climbing Stairs
 - Maximum Subarray
+- Missing Number
 ---
 ## Two Pointer ##
 - Reverse String
@@ -63,6 +64,7 @@
 - Largest Perimeter Triangle
 - Set Mismatch
 - Arranging Coins
+- Missing Number
 
 ---
 ## Tree ##
@@ -92,6 +94,7 @@
 - Prime Number of Set Bits in Binary Representation
 - Binary Number with Alternating Bits
 - Letter Case Permutation
+- Missing Number
 ---
 ## Backtracking ##
 - Letter Case Permutation
