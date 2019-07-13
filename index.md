@@ -105,6 +105,7 @@
 - Peak Index in a Mountain Array
 - Two Sum II - Input array is sorted
 - Arranging Coins
+- Find Smallest Letter Greater Than Target
 ---
 ## Sort ##
 - Sort Array By Parity II
