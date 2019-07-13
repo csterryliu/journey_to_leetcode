@@ -1,4 +1,25 @@
 class Solution(object):
+    def bestSolutionFromLeetCode(self, letters, target):
+        # in fact, binary serach is enough
+        # just keep searching even if we have found the answer
+        # keyword: "loop invariant"
+        l = 0
+        r = len(letters) 
+        while l < r:
+            mid = l + ((r - l) / 2)
+            if letters[mid] <= target:
+                l = mid + 1
+            else:
+                r = mid
+        # we can use modulo to wrap around!
+        # note: l and r will be the same here
+        return letters[l % len(letters)]
+
+    def bestSolutionFromLeetCode2(self, letters, target):
+        # use built-in binary search function
+        index = bisect.bisect(letters, target)
+        return letters[index % len(letters)]
+
     def nextGreatestLetter(self, letters, target):
         # the array is always sorted - considering binary search
         # find the index of the target, then we return the next greater letter
@@ -52,12 +73,12 @@ class Solution(object):
 
 if __name__ == '__main__':
     sol = Solution()
-    print sol.nextGreatestLetter(["c", "f", "j"], "c")
-    print sol.nextGreatestLetter(["c", "f", "j"], "a")
-    print sol.nextGreatestLetter(["c", "f", "j"], "d")
-    print sol.nextGreatestLetter(["c", "f", "j"], "g")
-    print sol.nextGreatestLetter(["c", "f", "j"], "j")
-    print sol.nextGreatestLetter(["c", "f", "j"], "k")
-    print sol.nextGreatestLetter(["e","e","e","e","e","e","n","n","n","n"], "e")
-    print sol.nextGreatestLetter(["e","e","e","e","e","e","n","n","n","n"], "n")
-    print sol.nextGreatestLetter(["e","e","e","e","e","e","n","n","n","n"], "e")
+    print sol.bestSolutionFromLeetCode(["c", "f", "j"], "c")
+    print sol.bestSolutionFromLeetCode(["c", "f", "j"], "a")
+    print sol.bestSolutionFromLeetCode(["c", "f", "j"], "d")
+    print sol.bestSolutionFromLeetCode(["c", "f", "j"], "g")
+    print sol.bestSolutionFromLeetCode(["c", "f", "j"], "j")
+    print sol.bestSolutionFromLeetCode(["c", "f", "j"], "k")
+    print sol.bestSolutionFromLeetCode(["e","e","e","e","e","e","n","n","n","n"], "e")
+    print sol.bestSolutionFromLeetCode(["e","e","e","e","e","e","n","n","n","n"], "n")
+    print sol.bestSolutionFromLeetCode(["e","e","e","e","e","e","n","n","n","n"], "e")
