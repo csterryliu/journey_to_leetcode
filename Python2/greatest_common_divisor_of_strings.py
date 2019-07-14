@@ -33,6 +33,8 @@ class Solution(object):
             end_idx = right_boundary
             if check(dividend, test, right_boundary) and check(divisor, test, right_boundary):
                 return test
+        # the time complexity may be very bad.
+        # it may be similar to o(n^2), because there are so may loop inside a loop
         return ''
 
 
