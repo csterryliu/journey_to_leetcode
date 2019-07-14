@@ -119,6 +119,9 @@
 - Climbing Stairs
 - Maximum Subarray
 ---
+## Greedy ##
+- Last Stone Weight
+---
 ## Divide and Conquer ##
 - Maximum Subarray
 ---
