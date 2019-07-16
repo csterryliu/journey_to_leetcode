@@ -44,6 +44,7 @@
 ---
 ## Stack ##
 - Next Greater Element I
+- - Valid Parentheses
 ---
 ## String ##
 - Count Binary Substrings
@@ -58,6 +59,7 @@
 - First Unique Character in a String
 - Reverse Vowels of a String
 - Greatest Common Divisor of Strings
+- Valid Parentheses
 ---
 ## Math ##
 - Self Dividing Numbers
