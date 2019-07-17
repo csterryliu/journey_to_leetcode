@@ -1,0 +1,43 @@
+# Definition for a binary tree node.
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+
+class Solution(object):
+    def isUnivalTree(self, root):
+        # add them to the set and check if it has only 1 value
+        # time O(n)
+        # space O(n) because of the set
+        # Runtime: 12 ms, faster than 96.32% of Python online submissions for Univalued Binary Tree.
+        # Memory Usage: 11.7 MB, less than 90.63% of Python online submissions for Univalued Binary Tree.
+        # actually it's not so bad
+        # summary: no silly solution!!
+
+        temp = []
+
+        def dfs(root):
+            if root:
+                temp.append(root.val)
+                dfs(root.left)
+                dfs(root.right)
+        dfs(root)
+        return len(set(temp)) == 1
+
+    def recursiveSol(root):
+        return False
+        
+
+
+if __name__ == '__main__':
+    t1 = TreeNode(1)
+    t1.left = TreeNode(1)
+    t1.right = TreeNode(1)
+    t1.left.left = TreeNode(1)
+    t1.left.right = TreeNode(1)
+    t1.right.right = TreeNode(1)
+
+    sol = Solution()
+    print sol.isUnivalTree(t1)
