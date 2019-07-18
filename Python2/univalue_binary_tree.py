@@ -30,11 +30,12 @@ class Solution(object):
     def recursiveSol(self, root):
         # from leetcode
         # Time Complexity: O(N), where N is the number of nodes in the given tree.
-        # Space Complexity: O(H), where H is the height of the given tree. 
+        # Space Complexity: O(H), where H is the height of the given tree.
+        # a node without children is also considered univalue
         left_correct = (not root.left or root.val == root.left.val and self.recursiveSol(root.left))
         right_correct = (not root.right or root.val == root.right.val and self.recursiveSol(root.right))
         return left_correct and right_correct
-        
+
 
 
 if __name__ == '__main__':
