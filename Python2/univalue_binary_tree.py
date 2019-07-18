@@ -8,6 +8,7 @@ class TreeNode(object):
 
 class Solution(object):
     def isUnivalTree(self, root):
+        # from leetcode
         # add them to the set and check if it has only 1 value
         # time O(n)
         # space O(n) because of the set
@@ -26,8 +27,13 @@ class Solution(object):
         dfs(root)
         return len(set(temp)) == 1
 
-    def recursiveSol(root):
-        return False
+    def recursiveSol(self, root):
+        # from leetcode
+        # Time Complexity: O(N), where N is the number of nodes in the given tree.
+        # Space Complexity: O(H), where H is the height of the given tree. 
+        left_correct = (not root.left or root.val == root.left.val and self.recursiveSol(root.left))
+        right_correct = (not root.right or root.val == root.right.val and self.recursiveSol(root.right))
+        return left_correct and right_correct
         
 
 
