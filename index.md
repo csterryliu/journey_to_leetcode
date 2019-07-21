@@ -41,6 +41,7 @@
 ## Linked List ##
 - Middle of the Linked List
 - Reverse Linked List
+- Remove Duplicates From Sorted List
 ---
 ## Stack ##
 - Next Greater Element I
@@ -86,6 +87,7 @@
 - Diameter of Binary Tree
 - Path Sum
 - Longest Univalue Path
+- Univalue Binary Tree
 ---
 ## Recursion ##
 - Longest Univalue Path
