@@ -123,6 +123,7 @@
 - Climbing Stairs
 - Maximum Subarray
 - House Robber
+- Divisor Game
 ---
 ## Greedy ##
 - Last Stone Weight
