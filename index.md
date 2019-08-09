@@ -42,6 +42,7 @@
 - Middle of the Linked List
 - Reverse Linked List
 - Remove Duplicates From Sorted List
+- Merge Two Sorted Linked List
 ---
 ## Stack ##
 - Next Greater Element I

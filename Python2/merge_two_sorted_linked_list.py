@@ -6,34 +6,32 @@ class ListNode(object):
 
 
 class Solution(object):
+    # O(len(l1) + len(l2))
     def mergeTwoLists(self, l1, l2):
-        if not l1 and not l2:
-            return None
         if not l1 and l2:
             return l2
         if l1 and not l2:
             return l1
-        output = None
-        if l1.val >= l2.val:
-            output = ListNode(l1.val)
-            l1 = l1.next
-        else:
-            output = ListNode(l2.val)
-            l2 = l2.next
-        head = output
+        if not l1 and not l2:
+            return None
+        output = ListNode(0)
+        output_ptr = output
+
         while l1 and l2:
             if l1.val >= l2.val:
-                head.next = ListNode(l1.val)
-                l1 = l1.next
-            else:
-                head.next = ListNode(l2.val)
+                output_ptr.next = ListNode(l2.val)
                 l2 = l2.next
-            head = head.next
+            else:
+                output_ptr.next = ListNode(l1.val)
+                l1 = l1.next
+            output_ptr = output_ptr.next
+
         if l1:
-            head.next = l1
+            output_ptr.next = l1
         if l2:
-            head.next = l2
-        return output
+            output_ptr.next = l2
+
+        return output.next
 
 
 if __name__ == '__main__':
@@ -43,9 +41,10 @@ if __name__ == '__main__':
     l2 = ListNode(1)
     l2.next = ListNode(3)
     l2.next.next = ListNode(4)
+    l2.next.next.next = ListNode(5)
 
     sol = Solution()
     output = sol.mergeTwoLists(l1, l2)
     while output:
         print output.val
-
+        output = output.next
