@@ -24,6 +24,7 @@
 - Move Zeroes
 - Two Sum II - Input array is sorted
 - Reverse Vowels of a String
+- Intersection of two arrays
 
 ---
 ## Hash Table ##
@@ -37,6 +38,7 @@
 - First Unique Character in a String
 - Two Sum
 - Set Mismatch
+- Intersection of two arrays
 ---
 ## Linked List ##
 - Middle of the Linked List
@@ -111,11 +113,12 @@
 - Two Sum II - Input array is sorted
 - Arranging Coins
 - Find Smallest Letter Greater Than Target
+- Intersection of two arrays
 ---
 ## Sort ##
 - Sort Array By Parity II
 - Largest Perimeter Triangle
-
+- Intersection of two arrays
 ---
 ## Dynamic Programming ##
 - Fibonacci Number
