@@ -25,6 +25,7 @@
 - Two Sum II - Input array is sorted
 - Reverse Vowels of a String
 - Intersection of two arrays
+- Intersection of two arrays II
 
 ---
 ## Hash Table ##
@@ -39,6 +40,7 @@
 - Two Sum
 - Set Mismatch
 - Intersection of two arrays
+- Intersection of two arrays II
 ---
 ## Linked List ##
 - Middle of the Linked List
@@ -114,11 +116,13 @@
 - Arranging Coins
 - Find Smallest Letter Greater Than Target
 - Intersection of two arrays
+- Intersection of two arrays II
 ---
 ## Sort ##
 - Sort Array By Parity II
 - Largest Perimeter Triangle
 - Intersection of two arrays
+- Intersection of two arrays II
 ---
 ## Dynamic Programming ##
 - Fibonacci Number
