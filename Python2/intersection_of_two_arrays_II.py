@@ -17,8 +17,18 @@ class Solution(object):
                 counter_map[n] -= 1
         return output
 
+    # according to the running result, it's slower than previous solution
+    def intersectionII(self, nums1, nums2):
+        from collections import Counter
+        # c1: Counter({1: 2, 2: 2})
+        c1 = Counter(nums1)
+        # c2: Counter({2: 2})
+        c2 = Counter(nums2)
+        # c1 & c2: Counter({2: 2})
+        return list((c1 & c2).elements())  # [2, 2]
+
 
 if __name__ == '__main__':
     sol = Solution()
-    output = sol.intersection([1, 2, 2, 1], [2, 2])
+    output = sol.intersectionII([1, 2, 2, 1], [2, 2])
     print output
