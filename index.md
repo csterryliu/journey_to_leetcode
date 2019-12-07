@@ -26,6 +26,7 @@
 - Reverse Vowels of a String
 - Intersection of two arrays
 - Intersection of two arrays II
+- Backspace String Compare
 
 ---
 ## Hash Table ##
@@ -50,7 +51,8 @@
 ---
 ## Stack ##
 - Next Greater Element I
-- - Valid Parentheses
+- Valid Parentheses
+- Backspace String Compare
 ---
 ## String ##
 - Count Binary Substrings
