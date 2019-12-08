@@ -18,6 +18,7 @@
 - Min Cost Climbing Stairs
 - Maximum Subarray
 - Missing Number
+- Squares of a Sorted Array
 ---
 ## Two Pointer ##
 - Reverse String
@@ -27,6 +28,7 @@
 - Intersection of two arrays
 - Intersection of two arrays II
 - Backspace String Compare
+- Squares of a Sorted Array
 
 ---
 ## Hash Table ##
