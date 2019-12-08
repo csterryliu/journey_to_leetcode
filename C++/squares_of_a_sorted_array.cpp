@@ -27,6 +27,30 @@ vector<int> Solution::sortedSquares2(vector<int>& A) {
     return output;
 }
 
+// the best solution. only cost O(n)
+// key: the original array is sorted and the square of a negative number is positive
+vector<int> Solution::sortedSquaresOnePass(vector<int>& A) {
+    vector<int> output(A.size());
+    int left = 0;
+    int right = A.size();
+    int idx = A.size() - 1;
+    while (left < right) {
+        int ls = A[left] * A[left];
+        int rs = A[right-1] * A[right-1];
+        // put the greater one into the array and then go backword
+        if (rs > ls) {
+            output[idx] = rs;
+            right--;
+            // do not move another pointer. because we need to compare!
+        } else {
+            output[idx] = ls;
+            left++;
+        }
+        idx--;
+    }
+    return output;
+}
+
 int main() {
     vector<int> A;
     A.push_back(-4);
@@ -37,7 +61,7 @@ int main() {
     Utility::printVector(A);
     cout << endl;
     Solution* s = new Solution();
-    vector<int> output = s->sortedSquares2(A);
+    vector<int> output = s->sortedSquaresOnePass(A);
     Utility::printVector(output);
     cout << endl;
     return 0;

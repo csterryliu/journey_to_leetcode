@@ -8,4 +8,5 @@ class Solution {
         ~Solution() {}
         vector<int> sortedSquares(vector<int>& A);
         vector<int> sortedSquares2(vector<int>& A);
+        vector<int> sortedSquaresOnePass(vector<int>& A);
 };
